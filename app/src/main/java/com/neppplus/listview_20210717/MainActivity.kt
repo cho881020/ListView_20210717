@@ -2,6 +2,7 @@ package com.neppplus.listview_20210717
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.neppplus.listview_20210717.adapters.StudentAdapter
 import com.neppplus.listview_20210717.datas.Student
@@ -47,6 +48,17 @@ class MainActivity : AppCompatActivity() {
             val clickedStudent = mStudentList[position]
 
             Toast.makeText(this, "${clickedStudent.name} 클릭됨", Toast.LENGTH_SHORT).show()
+
+        }
+
+        studentListView.setOnItemLongClickListener { parent, view, position, id ->
+
+//            길게 눌린 학생의 이름 로그로 출력.
+            val clickedStudent = mStudentList[position]
+
+            Log.d("길게눌린학생", clickedStudent.name)
+
+            return@setOnItemLongClickListener true
 
         }
 
