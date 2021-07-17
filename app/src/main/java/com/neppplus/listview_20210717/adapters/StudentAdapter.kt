@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import com.neppplus.listview_20210717.R
 import com.neppplus.listview_20210717.datas.Student
 
@@ -37,6 +38,22 @@ class StudentAdapter(
 
 
 //        row와 + position에 해당하는 학생데이터를 이용해서 => 위치에 맞는 이름 / 나이 / 주소 등을 넣어주자. (Adapter 2차작업)
+
+//        1. 위치에 맞는 학생 데이터 꺼내오기.
+
+        val data = mList[position]
+
+//        2. row (xml) 안에서, 데이터를 반영할 텍스트뷰 / 이미지뷰 등등.
+
+        val nameTxt = row.findViewById<TextView>(R.id.nameTxt)
+        val ageTxt = row.findViewById<TextView>(R.id.ageTxt)
+        val addressTxt = row.findViewById<TextView>(R.id.addressTxt)
+
+
+//        3. 각각의 UI에 data변수를 이용한 세팅.
+        nameTxt.text = data.name
+        addressTxt.text = data.address
+        ageTxt.text = "(${data.birthYear})"
 
 
 //        완성된 row가 결과로 나가도록 지정.
