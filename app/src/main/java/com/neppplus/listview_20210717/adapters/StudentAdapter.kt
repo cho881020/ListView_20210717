@@ -53,7 +53,10 @@ class StudentAdapter(
 //        3. 각각의 UI에 data변수를 이용한 세팅.
         nameTxt.text = data.name
         addressTxt.text = data.address
-        ageTxt.text = "(${data.birthYear})"
+
+        val age = 2021 - data.birthYear + 1
+
+        ageTxt.text = "(${age}세)"
 
 
 //        완성된 row가 결과로 나가도록 지정.
